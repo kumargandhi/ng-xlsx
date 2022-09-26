@@ -1,0 +1,28 @@
+<div class="page-container">
+  <h3>
+    {{ title }}
+  </h3>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of users">
+                    <th scope="row">{{ item.uid }}</th>
+                    <td>{{ item.first }}</td>
+                    <td>{{ item.last }}</td>
+                    <td>{{ item.handle }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" (click)="export()">Export to Excel</button>
+    </div>
+  </div>
+</div>

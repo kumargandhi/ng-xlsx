@@ -1,0 +1,15 @@
+@import './node_modules/bootstrap/scss/bootstrap';
+
+html,
+body {
+    font-size: 12px !important;
+    margin: 0;
+    overflow: hidden;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.page-container {
+    padding: 20px;
+}
+
