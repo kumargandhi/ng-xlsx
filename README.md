@@ -4,7 +4,7 @@
 
 ![Search for country](https://kumargandhi.github.io/assets/ng-xlsx/NgXlsx.png)
 
-Checkout [SheetJS](https://github.com/SheetJS/sheetjs) tool for more info about extracting data into spreadsheet. 
+Checkout [SheetJS](https://github.com/SheetJS/sheetjs) tool for more info about extracting data into spreadsheets. 
 
 Created with `angular cli $ng new`. See the [Guide](https://angular.io/tutorial/toh-pt0).
 
