@@ -1,9 +1,5 @@
 import { Component } from "@angular/core";
 import * as _ from "lodash";
-import {
-  ExportTableDataColumnDto,
-  ExportTableDataDto,
-} from "./classes/table-data.class";
 import { ExcelDataService } from "./services/excel-data.service";
 
 @Component({
@@ -37,23 +33,7 @@ export class AppComponent {
 
   constructor(private _excelDataService: ExcelDataService) {}
 
-  export() {
-    const exportTable: ExportTableDataDto<number | string | {}> =
-      new ExportTableDataDto<number | string | {}>();
-    exportTable.totalRecords = this.users.length;
-    exportTable.workSheetName = `${this.title}`;
-    exportTable.columns = [];
-    const keys: string[] = _.keys(_.head(this.users));
-    keys.forEach((key) => {
-      const clmn: ExportTableDataColumnDto<string> =
-        new ExportTableDataColumnDto<string>();
-      clmn.headerText = key;
-      clmn.data = [];
-      for (let i = 0; i < this.users.length; i++) {
-        clmn.data.push(this.users[i][key]);
-      }
-      exportTable.columns.push(clmn);
-    });
-    this._excelDataService.exportDataToExcel([exportTable], `${this.title}`);
+  exportRawData() {
+    this._excelDataService.exportRawDataToExcel(this.users, this.title);
   }
 }
