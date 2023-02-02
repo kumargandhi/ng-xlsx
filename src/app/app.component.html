@@ -2,27 +2,69 @@
   <h3>
     {{ title }}
   </h3>
-  <div class="row">
+  <ul class="nav nav-tabs mt-5">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'Users'"
+        (click)="selectedTab = 'Users'"
+        >Users</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="selectedTab === 'Customers'"
+        (click)="selectedTab = 'Customers'"
+        >Customers</a
+      >
+    </li>
+  </ul>
+  <div class="row" *ngIf="selectedTab === 'Users'">
     <div class="col-md-12">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of users">
-                    <th scope="row">{{ item.uid }}</th>
-                    <td>{{ item.first }}</td>
-                    <td>{{ item.last }}</td>
-                    <td>{{ item.handle }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" class="btn btn-primary" (click)="exportRawData()">Export to Excel</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users">
+            <th scope="row">{{ item.uid }}</th>
+            <td>{{ item.first }}</td>
+            <td>{{ item.last }}</td>
+            <td>{{ item.handle }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+  <div class="row" *ngIf="selectedTab === 'Customers'">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of customers">
+            <th scope="row">{{ item.uid }}</th>
+            <td>{{ item.first }}</td>
+            <td>{{ item.last }}</td>
+            <td>{{ item.handle }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary mt-3" (click)="exportRawData()">
+    Export to Excel
+  </button>
 </div>

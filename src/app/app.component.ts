@@ -31,9 +31,32 @@ export class AppComponent {
     },
   ];
 
+  customers = [
+    {
+      uid: "1",
+      first: "Johnson",
+      last: "White",
+      handle: "@mdo",
+    },
+    {
+      uid: "2",
+      first: "Ashley",
+      last: "Borden",
+      handle: "@fat",
+    },
+    {
+      uid: "3",
+      first: "Marjorie",
+      last: "Green",
+      handle: "@twitter",
+    },
+  ];
+
+  selectedTab = "Users";
+
   constructor(private _excelDataService: ExcelDataService) {}
 
   exportRawData() {
-    this._excelDataService.exportRawDataToExcel(this.users, this.title);
+    this._excelDataService.exportRawDataToExcel([this.users, this.customers], this.title);
   }
 }
